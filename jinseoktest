@@ -10,7 +10,7 @@ public class JarFileExample {
         String classContent = "Hello, World!";
 
         try (JarOutputStream jarOutputStream = new JarOutputStream(new FileOutputStream(jarFileName))) {
-            JarEntry entry = new JarEntry(className);
+            JarEntry etry = new JarEntry(className);
             jarOutputStream.putNextEntry(entry);
             jarOutputStream.write(classContent.getBytes());
             jarOutputStream.closeEntry();
