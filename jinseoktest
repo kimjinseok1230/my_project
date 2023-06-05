@@ -1,5 +1,22 @@
-kkkkk
-hello my name is kim jin seok
-nice meet you
-have a nice day
-kkk mmm jjj
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.jar.JarEntry;
+import java.util.jar.JarOutputStream;
+
+public class JarFileExample {
+    public static void main(String[] args) {
+        String jarFileName = "example.jar";
+        String className = "HelloWorld.class";
+        String classContent = "Hello, World!";
+
+        try (JarOutputStream jarOutputStream = new JarOutputStream(new FileOutputStream(jarFileName))) {
+            JarEntry entry = new JarEntry(className);
+            jarOutputStream.putNextEntry(entry);
+            jarOutputStream.write(classContent.getBytes());
+            jarOutputStream.closeEntry();
+            System.out.println("Jar file created successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
